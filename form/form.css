@@ -1,0 +1,17 @@
+header {
+  background-color: gray;
+}
+
+footer {
+  border: solid;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 2px;
+}
+.menu-icon {
+  width: 20px;
+}
