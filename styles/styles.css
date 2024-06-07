@@ -1,4 +1,6 @@
-header {
+@import "/styles/bookmarks.css";
+@import "./form.css";
+@import "./profile.css" header {
   background-color: gray;
 }
 .question-container {
