@@ -15,18 +15,36 @@
         <textarea id="question"></textarea>
         <p>Answer's Options:</p>
         <label for="option1">Option 1</label>
-        <input type="text" id="option1" placeholder="Your first option" />
+        <input
+          type="text"
+          id="option1"
+          placeholder="Your first option"
+          size="50"
+          required
+        />
         <label for="option2">Option 2</label>
-        <input type="text" id="option2" placeholder="Your second option" />
+        <input
+          type="text"
+          id="option2"
+          placeholder="Your second option"
+          size="50"
+          required
+        />
         <label for="option3">Option 3</label>
-        <input type="text" id="option3" placeholder="Your third option" />
+        <input
+          type="text"
+          id="option3"
+          placeholder="Your third option"
+          size="50"
+          required
+        />
         <p>The right Answer is:</p>
-        <input type="radio" id="answer1" />
-        <label for="answer1">Answer 1</label>
-        <input type="radio" id="answer2" />
-        <label for="answer2">Answer 2</label>
-        <input type="radio" id="answer3" />
-        <label for="answer3">Answer 3</label>
+        <input type="radio" id="answer1" name="rightanswer" />
+        <label for="answer">Answer 1</label>
+        <input type="radio" id="answer2" name="rightanswer" />
+        <label for="answer">Answer 2</label>
+        <input type="radio" id="answer3" name="rightanswer" />
+        <label for="answer">Answer 3</label>
         <p>Click on 3 Categories</p>
         <input type="checkbox" id="music" />
         <label for="music">Music</label>
@@ -48,6 +66,7 @@
         <label for="art">Art</label>
         <input type="checkbox" id="pop" />
         <label for="pop">Pop Culture</label>
+        <button type="submit">Submit</button>
       </form>
     </main>
     <footer>
