@@ -6,12 +6,6 @@ footer {
   border: solid;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-}
-
 .menu {
   list-style: none;
   display: flex;
