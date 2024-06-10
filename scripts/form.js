@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  //   const formValues = new FormData(event.target);
-  //   const values = Object.fromEntries(formValues);
-  //   console.log(values);
+  const formValues = new FormData(event.target);
+  const values = Object.fromEntries(formValues);
+  console.log(values);
 
   const createQuestion = event.target.elements.question.value;
   const createOption1 = event.target.elements.option1.value;

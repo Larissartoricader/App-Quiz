@@ -5,36 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/styles.css" />
     <title>Quiz App</title>
-    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/index.js" type="module"></script>
   </head>
   <body>
     <header><h1>Quiz App</h1></header>
     <main>
-      <article class="question-container">
-        <img
-          class="bookmark"
-          src="../assets/bookmark-white.png"
-          data-js="bookmark"
-        />
-        <div class="question-box">
-          <h2 class="question-txt">A Question</h2>
-          <div class="choice-container">
-            <p class="choice1">1. Choice</p>
-            <p class="choice2">2. Choice</p>
-            <p class="choice3">3. Choice</p>
+      <div class="all-questions-container" data-js="all-questions-container">
+        <article class="question-container">
+          <img
+            class="bookmark"
+            src="../assets/bookmark-white.png"
+            data-js="bookmark"
+          />
+          <div class="question-box">
+            <h2 class="question-txt">A Question</h2>
+            <div class="choice-container">
+              <p class="choice">1. Choice</p>
+              <p class="choice">2. Choice</p>
+              <p class="choice">3. Choice</p>
+            </div>
+            <p class="answer-txt-unvisible" data-js="answer-txt">An Answer</p>
+            <button type="button" data-js="answer-button">
+              Reveal the Answer
+            </button>
           </div>
-          <p class="answer-txt-unvisible" data-js="answer-txt">An Answer</p>
-          <button type="button" data-js="answer-button">
-            Reveal the Answer
-          </button>
-        </div>
 
-        <div class="catergory-container">
-          <p class="category-txt">#1 Category</p>
-          <p class="category-txt">#2 Category</p>
-          <p class="category-txt">#3 Category</p>
-        </div>
-      </article>
+          <div class="category-container">
+            <p class="category-txt">#1 Category</p>
+            <p class="category-txt">#2 Category</p>
+            <p class="category-txt">#3 Category</p>
+          </div>
+        </article>
+      </div>
     </main>
     <footer>
       <nav>
