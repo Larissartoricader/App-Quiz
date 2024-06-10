@@ -1,6 +1,8 @@
 @import "/styles/bookmarks.css";
 @import "./form.css";
-@import "./profile.css" header {
+@import "./profile.css";
+
+header {
   background-color: gray;
 }
 .question-container {
@@ -29,6 +31,15 @@
   display: flex;
   gap: 5px;
 }
+
+.answer-txt-unvisible {
+  visibility: hidden;
+}
+
+.answer-txt-visible {
+  visibility: visible;
+}
+
 .category-txt {
   border: solid 1px;
   padding: 2px;

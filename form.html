@@ -3,21 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/form.css" />
+    <link rel="stylesheet" href="./styles/form.css" />
+    <script src="./scripts/form.js" defer></script>
     <title>Quiz App</title>
   </head>
   <body>
     <header><h1>Quiz App - Form</h1></header>
     <main>
       <h2>Add a New Question</h2>
-      <form>
+      <form data-js="form">
         <label>Your Question</label>
-        <textarea id="question"></textarea>
-        <h2>Answer's Options:</h2>
+        <textarea id="question" name="question"></textarea>
+        <!-- Answer Options -->
+        <legend>Answer's Options:</legend>
         <label for="option1">Option 1</label>
         <input
           type="text"
           id="option1"
+          name="option1"
           placeholder="Your first option"
           size="50"
           required
@@ -26,6 +29,7 @@
         <input
           type="text"
           id="option2"
+          name="option2"
           placeholder="Your second option"
           size="50"
           required
@@ -34,37 +38,56 @@
         <input
           type="text"
           id="option3"
+          name="option3"
           placeholder="Your third option"
           size="50"
           required
         />
-        <h2>The right Answer is:</h2>
-        <input type="radio" id="answer1" name="rightanswer" />
+        <!-- Right Answer -->
+        <legend>The right Answer is:</legend>
+        <input type="radio" id="answer1" name="rightanswer" value="option1" />
         <label for="answer">Answer 1</label>
-        <input type="radio" id="answer2" name="rightanswer" />
+        <input type="radio" id="answer2" name="rightanswer" value="option2" />
         <label for="answer">Answer 2</label>
-        <input type="radio" id="answer3" name="rightanswer" />
+        <input type="radio" id="answer3" name="rightanswer" value="option3" />
         <label for="answer">Answer 3</label>
-        <h2>Click on 3 Categories</h2>
-        <input type="checkbox" id="music" name="music" />
+        <!-- Categories -->
+        <legend max="3">Click on 3 Categories</legend>
+        <p>Max. 3 Categories</p>
+        <input type="checkbox" id="music" name="category[]" value="music" />
         <label for="music">Music</label>
-        <input type="checkbox" id="movie" name="movie" />
+        <input type="checkbox" id="movie" name="category[]" value="movie" />
         <label for="movie">Movie</label>
-        <input type="checkbox" id="history" name="history" />
+        <input type="checkbox" id="history" name="category[]" value="history" />
         <label for="history">History</label>
-        <input type="checkbox" id="science" name="science" />
+        <input type="checkbox" id="science" name="category[]" value="science" />
         <label for="science">Science</label>
-        <input type="checkbox" id="literature" name="literature" />
+        <input
+          type="checkbox"
+          id="literature"
+          name="category[]"
+          value="literature"
+        />
         <label for="literature">Literature</label>
-        <input type="checkbox" id="geography" name="geography" />
+        <input
+          type="checkbox"
+          id="geography"
+          name="category[]"
+          value="geography"
+        />
         <label for="geography">Geography</label>
-        <input type="checkbox" id="sport" name="sport" />
+        <input type="checkbox" id="sport" name="category[]" value="sport" />
         <label for="sport">Sport</label>
-        <input type="checkbox" id="technology" name="technology" />
+        <input
+          type="checkbox"
+          id="technology"
+          name="category[]"
+          value="technology"
+        />
         <label for="technology">Technology</label>
-        <input type="checkbox" id="art" name="art" />
+        <input type="checkbox" id="art" name="category[]" value="art" />
         <label for="art">Art</label>
-        <input type="checkbox" id="pop" name="pop" />
+        <input type="checkbox" id="pop" name="category[]" value="pop" />
         <label for="pop">Pop Culture</label>
         <button type="submit">Submit</button>
       </form>

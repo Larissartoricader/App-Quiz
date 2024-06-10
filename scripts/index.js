@@ -12,3 +12,11 @@ BookmarkIcon.addEventListener("click", () => {
     BookmarkIcon.setAttribute("src", newBookmarkIcon);
   }
 });
+
+const Answer = document.querySelector('[data-js="answer-txt"]');
+const AnswerButton = document.querySelector('[data-js="answer-button"]');
+
+AnswerButton.addEventListener("click", () => {
+  Answer.classList.toggle("answer-txt-visible");
+  Answer.classList.toggle("answer-txt-unvisible");
+});
