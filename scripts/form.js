@@ -30,14 +30,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const formValues = new FormData(event.target);
-  const values = Object.fromEntries(formValues);
-  console.log(values);
+  //   const formValues = new FormData(event.target);
+  //   const values = Object.fromEntries(formValues);
+  //   console.log(values);
 
   const createQuestion = event.target.elements.question.value;
   const createOption1 = event.target.elements.option1.value;
   const createOption2 = event.target.elements.option2.value;
   const createOption3 = event.target.elements.option3.value;
   const createRightAnswer = event.target.elements.rightanswer.value;
-  const creteCategories = event.target.elements.checkedCategories.values;
+  const selectedCategories = [];
+  const checkedCategories = event.target
+    .querySelectorAll('input[name="category"]:checked')
+    .forEach((checkBoxes) => {
+      selectedCategories.push(checkBoxes.value);
+    });
+  console.log(selectedCategories);
 });
