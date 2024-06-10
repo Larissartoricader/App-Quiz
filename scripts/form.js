@@ -1,5 +1,5 @@
 const form = document.querySelector('[data-js="form"]');
-const checkBoxes = document.querySelectorAll('input[name="category[]"]');
+const checkBoxes = document.querySelectorAll('input[name="category"]');
 
 // Max of 3 Categories
 
@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
   checkBoxes.forEach((box) => {
     box.addEventListener("change", function () {
       const checkedBoxes = document.querySelectorAll(
-        'input[name="category[]"]:checked'
+        'input[name="category"]:checked'
       );
       const uncheckedBoxes = document.querySelectorAll(
-        'input[name="category[]"]:not(:checked)'
+        'input[name="category"]:not(:checked)'
       );
 
       if (checkedBoxes.length >= 3) {
@@ -39,4 +39,5 @@ form.addEventListener("submit", (event) => {
   const createOption2 = event.target.elements.option2.value;
   const createOption3 = event.target.elements.option3.value;
   const createRightAnswer = event.target.elements.rightanswer.value;
+  const creteCategories = event.target.elements.checkedCategories.values;
 });
