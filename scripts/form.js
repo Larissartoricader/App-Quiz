@@ -45,5 +45,4 @@ form.addEventListener("submit", (event) => {
     .forEach((checkBoxes) => {
       selectedCategories.push(checkBoxes.value);
     });
-  console.log(selectedCategories);
 });
