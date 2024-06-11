@@ -10,6 +10,7 @@ const questionsContainer = document.querySelector(
 function createNewQuestionCard(questionData) {
   const newArticle = document.createElement("article");
   newArticle.classList.add("question-container");
+  newArticle.dataset.js = questionData.id;
 
   const bookmarkImg = document.createElement("img");
   bookmarkImg.classList.add("bookmark");
@@ -30,38 +31,23 @@ function createNewQuestionCard(questionData) {
   choiceContainer.classList.add("choice-container");
   questionBox.appendChild(choiceContainer);
 
-  const newChoice1 = document.createElement("p");
+  const newChoice1 = document.createElement("button");
   newChoice1.classList.add("choice");
-  newChoice1.textContent = `1. ${questionData.option1}`;
+  newChoice1.dataset.js = "option1";
+  newChoice1.textContent = questionData.option1;
   choiceContainer.appendChild(newChoice1);
 
-  const newChoice2 = document.createElement("p");
+  const newChoice2 = document.createElement("button");
   newChoice2.classList.add("choice");
-  newChoice2.textContent = `2. ${questionData.option2}`;
+  newChoice2.dataset.js = "option2";
+  newChoice2.textContent = questionData.option2;
   choiceContainer.appendChild(newChoice2);
 
-  const newChoice3 = document.createElement("p");
+  const newChoice3 = document.createElement("button");
   newChoice3.classList.add("choice");
-  newChoice3.textContent = `3. ${questionData.option3}`;
+  newChoice3.dataset.js = "option3";
+  newChoice3.textContent = questionData.option3;
   choiceContainer.appendChild(newChoice3);
-
-  const newAnswer = document.createElement("p");
-  newAnswer.classList.add("answer-txt-unvisible");
-  newAnswer.dataset.js = "answer-txt";
-  if (questionData.rightanswer === "option1") {
-    newAnswer.textContent = `The Right Answer: ${questionData.option1}`;
-  } else if (questionData.rightanswer === "option2") {
-    newAnswer.textContent = `The Right Answer: ${questionData.option2}`;
-  } else if (questionData.rightanswer === "option3") {
-    newAnswer.textContent = `The Right Answer: ${questionData.option3}`;
-  }
-  questionBox.appendChild(newAnswer);
-
-  const newButton = document.createElement("button");
-  newButton.dataset.js = "answer-button";
-  newButton.classList.add("answer-button");
-  newButton.textContent = "Reveal the Answer";
-  questionBox.appendChild(newButton);
 
   const categoryContainer = document.createElement("div");
   categoryContainer.classList.add("category-container");
@@ -85,12 +71,6 @@ function createNewQuestionCard(questionData) {
     );
   });
 
-  // Reveal the Answer
-  newButton.addEventListener("click", () => {
-    newAnswer.classList.toggle("answer-txt-visible");
-    newAnswer.classList.toggle("answer-txt-unvisible");
-  });
-
   return newArticle;
 }
 
@@ -98,4 +78,50 @@ function createNewQuestionCard(questionData) {
 questions.forEach((questionData) => {
   const card = createNewQuestionCard(questionData);
   questionsContainer.appendChild(card);
+});
+
+// Getting Right Answer and checking it
+function checkRightAnswer(event, choice) {
+  const questionId = parseInt(
+    event.target.closest(".question-container").dataset.js
+  );
+  const questionData = questions.find((question) => question.id === questionId);
+
+  let rightAnswerText;
+  if (questionData.rightanswer === "option1") {
+    rightAnswerText = questionData.option1;
+  } else if (questionData.rightanswer === "option2") {
+    rightAnswerText = questionData.option2;
+  } else if (questionData.rightanswer === "option3") {
+    rightAnswerText = questionData.option3;
+  }
+
+  if (choice === rightAnswerText) {
+    alert("Right");
+  } else {
+    alert("Wrong");
+  }
+}
+
+// Verifying the Answer
+const buttons1 = document.querySelectorAll('[data-js="option1"]');
+const buttons2 = document.querySelectorAll('[data-js="option2"]');
+const buttons3 = document.querySelectorAll('[data-js="option3"]');
+
+buttons1.forEach((button1) => {
+  button1.addEventListener("click", (event) => {
+    checkRightAnswer(event, button1.textContent);
+  });
+});
+
+buttons2.forEach((button2) => {
+  button2.addEventListener("click", (event) => {
+    checkRightAnswer(event, button2.textContent);
+  });
+});
+
+buttons3.forEach((button3) => {
+  button3.addEventListener("click", (event) => {
+    checkRightAnswer(event, button3.textContent);
+  });
 });
