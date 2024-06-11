@@ -1,14 +1,18 @@
 header {
-  background-color: gray;
-  height: 10vh;
+  height: 8vh;
+  position: relative;
+  top: 0;
+  width: 100%;
+  display: block;
+  color: white;
 }
+
 .question-container {
   background-color: lightgray;
-  margin-bottom: 20px;
   border-radius: 20px;
 }
 .question-box {
-  position: relative;
+  margin-bottom: 10px;
 }
 .bookmark {
   width: 20px;
@@ -41,7 +45,6 @@ header {
 
 .category-txt {
   border: solid 1px;
-  padding: 2px;
 }
 
 footer {
@@ -52,7 +55,6 @@ footer {
   list-style: none;
   display: flex;
   justify-content: space-around;
-  padding: 2px;
 }
 .menu-icon {
   width: 20px;

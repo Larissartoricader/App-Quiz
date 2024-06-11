@@ -1,5 +1,17 @@
-/* * {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+  background: #03001e;
+  background: -webkit-linear-gradient(
+    to top,
+    #fdeff9,
+    #ec38bc,
+    #7303c0,
+    #03001e
+  );
+  background: linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e);
+}
+:root {
+  font-size: 16px;
+}
