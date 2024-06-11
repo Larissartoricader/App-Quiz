@@ -59,6 +59,7 @@ function createNewQuestionCard(questionData) {
 
   const newButton = document.createElement("button");
   newButton.dataset.js = "answer-button";
+  newButton.classList.add("answer-button");
   newButton.textContent = "Reveal the Answer";
   questionBox.appendChild(newButton);
 

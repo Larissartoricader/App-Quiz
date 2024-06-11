@@ -35,12 +35,13 @@ header {
   display: flex;
   gap: 3px;
 }
-
-.category-container {
-  display: flex;
-  gap: 5px;
+.answer-button {
+  border: solid 2px White;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #7303c0;
+  color: White;
 }
-
 .answer-txt-unvisible {
   visibility: hidden;
 }
@@ -49,6 +50,12 @@ header {
   visibility: visible;
 }
 
+.category-container {
+  display: flex;
+  gap: 5px;
+  margin-left: 5px;
+}
+
 .category-txt {
-  border: solid 1px;
+  font-size: small;
 }
