@@ -1,19 +1,25 @@
-import { questions } from "./scripts/questions.js";
-console.clear();
+import { questions } from "../scripts/questions.js";
 
-// Import Question and Append in Index
+console.clear();
 
 const questionsContainer = document.querySelector(
   '[data-js="all-questions-container"]'
 );
-console.log(questionsContainer);
 
+// New Card HTML-Creation
 function createNewQuestionCard(questionData) {
   const newArticle = document.createElement("article");
   newArticle.classList.add("question-container");
 
+  const bookmarkImg = document.createElement("img");
+  bookmarkImg.classList.add("bookmark");
+  bookmarkImg.src = "../assets/bookmark-white.png";
+  bookmarkImg.dataset.js = "bookmark";
+  newArticle.appendChild(bookmarkImg);
+
   const questionBox = document.createElement("div");
   questionBox.classList.add("question-box");
+  newArticle.appendChild(questionBox);
 
   const questionTitle = document.createElement("h2");
   questionTitle.classList.add("question-txt");
@@ -41,60 +47,54 @@ function createNewQuestionCard(questionData) {
 
   const newAnswer = document.createElement("p");
   newAnswer.classList.add("answer-txt-unvisible");
-  answerText.dataset.js = "answer-txt";
+  newAnswer.dataset.js = "answer-txt";
   if (questionData.rightanswer === "option1") {
-    newAnswer.textContent = `The Rigth Answer. ${questionData.option1}`;
-  }
-  if (questionData.rightanswer === "option2") {
-    newAnswer.textContent = `The Rigth Answer. ${questionData.option2}`;
-  }
-  if (questionData.rightanswer === "option3") {
-    newAnswer.textContent = `The Rigth Answer. ${questionData.option3}`;
+    newAnswer.textContent = `The Right Answer: ${questionData.option1}`;
+  } else if (questionData.rightanswer === "option2") {
+    newAnswer.textContent = `The Right Answer: ${questionData.option2}`;
+  } else if (questionData.rightanswer === "option3") {
+    newAnswer.textContent = `The Right Answer: ${questionData.option3}`;
   }
   questionBox.appendChild(newAnswer);
 
   const newButton = document.createElement("button");
   newButton.dataset.js = "answer-button";
-  questionBox.append(newButton);
+  newButton.textContent = "Reveal the Answer";
+  questionBox.appendChild(newButton);
 
   const categoryContainer = document.createElement("div");
   categoryContainer.classList.add("category-container");
-  newArticle.append(categoryContainer);
+  newArticle.appendChild(categoryContainer);
 
-  const newCategory = document.createElement("p");
-  newCategory.classList.add("category-txt");
-  questionData.categories((category) => {
+  questionData.categories.forEach((category) => {
+    const newCategory = document.createElement("p");
+    newCategory.classList.add("category-txt");
     newCategory.textContent = `#${category}`;
+    categoryContainer.appendChild(newCategory);
   });
-  categoryContainer.append(newCategory);
 
-  questions.map((questionData) => {
-    const card = createNewQuestionCard(questionData);
-    questionsContainer.append(card);
+  // Bookmark Icon
+  bookmarkImg.addEventListener("click", () => {
+    const currentSrc = bookmarkImg.getAttribute("src");
+    bookmarkImg.setAttribute(
+      "src",
+      currentSrc === "../assets/bookmark-white.png"
+        ? "../assets/bookmark-black.png"
+        : "../assets/bookmark-white.png"
+    );
   });
+
+  // Reveal the Answer
+  newButton.addEventListener("click", () => {
+    newAnswer.classList.toggle("answer-txt-visible");
+    newAnswer.classList.toggle("answer-txt-unvisible");
+  });
+
+  return newArticle;
 }
 
-// Bookmarks
-
-const BookmarkIcon = document.querySelector('[data-js="bookmark"]');
-
-BookmarkIcon.addEventListener("click", () => {
-  const EmptyBookmarkIcon = BookmarkIcon.getAttribute("src");
-  if (EmptyBookmarkIcon === `../assets/bookmark-white.png`) {
-    const newBookmarkIcon = `../assets/bookmark-black.png`;
-    BookmarkIcon.setAttribute("src", newBookmarkIcon);
-  } else {
-    const newBookmarkIcon = `../assets/bookmark-white.png`;
-    BookmarkIcon.setAttribute("src", newBookmarkIcon);
-  }
-});
-
-// Reveal Right Answer
-
-const Answer = document.querySelector('[data-js="answer-txt"]');
-const AnswerButton = document.querySelector('[data-js="answer-button"]');
-
-AnswerButton.addEventListener("click", () => {
-  Answer.classList.toggle("answer-txt-visible");
-  Answer.classList.toggle("answer-txt-unvisible");
+// Add new Question-Card
+questions.forEach((questionData) => {
+  const card = createNewQuestionCard(questionData);
+  questionsContainer.appendChild(card);
 });
