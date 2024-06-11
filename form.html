@@ -9,88 +9,151 @@
   </head>
   <body>
     <header><h1>Quiz App - Form</h1></header>
-    <main>
-      <h2>Add a New Question</h2>
-      <form data-js="form">
-        <label>Your Question</label>
-        <textarea id="question" name="question"></textarea>
-        <!-- Answer Options -->
-        <legend>Answer's Options:</legend>
-        <label for="option1">Option 1</label>
-        <input
-          type="text"
-          id="option1"
-          name="option1"
-          placeholder="Your first option"
-          size="50"
-          required
-        />
-        <label for="option2">Option 2</label>
-        <input
-          type="text"
-          id="option2"
-          name="option2"
-          placeholder="Your second option"
-          size="50"
-          required
-        />
-        <label for="option3">Option 3</label>
-        <input
-          type="text"
-          id="option3"
-          name="option3"
-          placeholder="Your third option"
-          size="50"
-          required
-        />
-        <!-- Right Answer -->
-        <legend>The right Answer is:</legend>
-        <input type="radio" id="answer1" name="rightanswer" value="option1" />
-        <label for="answer">Answer 1</label>
-        <input type="radio" id="answer2" name="rightanswer" value="option2" />
-        <label for="answer">Answer 2</label>
-        <input type="radio" id="answer3" name="rightanswer" value="option3" />
-        <label for="answer">Answer 3</label>
-        <!-- Categories -->
-        <legend max="3">Click on 3 Categories</legend>
-        <p>Max. 3 Categories</p>
-        <input type="checkbox" id="music" name="category" value="music" />
-        <label for="music">Music</label>
-        <input type="checkbox" id="movie" name="category" value="movie" />
-        <label for="movie">Movie</label>
-        <input type="checkbox" id="history" name="category" value="history" />
-        <label for="history">History</label>
-        <input type="checkbox" id="science" name="category" value="science" />
-        <label for="science">Science</label>
-        <input
-          type="checkbox"
-          id="literature"
-          name="category"
-          value="literature"
-        />
-        <label for="literature">Literature</label>
-        <input
-          type="checkbox"
-          id="geography"
-          name="category"
-          value="geography"
-        />
-        <label for="geography">Geography</label>
-        <input type="checkbox" id="sport" name="category" value="sport" />
-        <label for="sport">Sport</label>
-        <input
-          type="checkbox"
-          id="technology"
-          name="category"
-          value="technology"
-        />
-        <label for="technology">Technology</label>
-        <input type="checkbox" id="art" name="category" value="art" />
-        <label for="art">Art</label>
-        <input type="checkbox" id="pop" name="category" value="pop" />
-        <label for="pop">Pop Culture</label>
-        <button type="submit">Submit</button>
-      </form>
+    <main class="background-main">
+      <div class="form-container">
+        <h2>Add a New Question</h2>
+        <form data-js="form">
+          <div class="input-box">
+            <label>Your Question</label>
+            <textarea id="question" name="question"></textarea>
+          </div>
+          <!-- Answer Options -->
+          <div class="input-box">
+            <legend>Answer's Options:</legend>
+            <label for="option1">Option 1</label>
+            <input
+              type="text"
+              id="option1"
+              name="option1"
+              placeholder="Your first option"
+              size="50"
+              required
+            />
+            <label for="option2">Option 2</label>
+            <input
+              type="text"
+              id="option2"
+              name="option2"
+              placeholder="Your second option"
+              size="50"
+              required
+            />
+            <label for="option3">Option 3</label>
+            <input
+              type="text"
+              id="option3"
+              name="option3"
+              placeholder="Your third option"
+              size="50"
+              required
+            />
+          </div>
+          <!-- Right Answer -->
+          <legend>The right Answer is:</legend>
+          <div class="checkbox-box">
+            <div class="checkbox-input">
+              <input
+                type="radio"
+                id="answer1"
+                name="rightanswer"
+                value="option1"
+              />
+              <label for="answer">Answer 1</label>
+            </div>
+            <div class="checkbox-input">
+              <input
+                type="radio"
+                id="answer2"
+                name="rightanswer"
+                value="option2"
+              />
+              <label for="answer">Answer 2</label>
+            </div>
+            <div class="checkbox-input">
+              <input
+                type="radio"
+                id="answer3"
+                name="rightanswer"
+                value="option3"
+              />
+              <label for="answer">Answer 3</label>
+            </div>
+          </div>
+          <!-- Categories -->
+          <div class="category-titles-box">
+            <legend max="3">Choose Categories</legend>
+            <p class="input-subtitle">(Max. 3 Categories)</p>
+          </div>
+          <div class="category-box">
+            <div class="category-option">
+              <input type="checkbox" id="music" name="category" value="music" />
+              <label for="music">Music</label>
+            </div>
+            <div class="category-option">
+              <input type="checkbox" id="movie" name="category" value="movie" />
+              <label for="movie">Movie</label>
+            </div>
+            <div class="category-option">
+              <input
+                type="checkbox"
+                id="history"
+                name="category"
+                value="history"
+              />
+              <label for="history">History</label>
+            </div>
+            <div class="category-option">
+              <input
+                type="checkbox"
+                id="science"
+                name="category"
+                value="science"
+              />
+              <label for="science">Science</label>
+            </div>
+            <div class="category-option">
+              <input
+                type="checkbox"
+                id="literature"
+                name="category"
+                value="literature"
+              />
+              <label for="literature">Literature</label>
+            </div>
+            <div class="category-option">
+              <input
+                type="checkbox"
+                id="geography"
+                name="category"
+                value="geography"
+              />
+              <label for="geography">Geography</label>
+            </div>
+            <div class="category-option">
+              <input type="checkbox" id="sport" name="category" value="sport" />
+              <label for="sport">Sport</label>
+            </div>
+            <div class="category-option">
+              <input
+                type="checkbox"
+                id="technology"
+                name="category"
+                value="technology"
+              />
+              <label for="technology">Technology</label>
+            </div>
+            <div class="category-option">
+              <input type="checkbox" id="art" name="category" value="art" />
+              <label for="art">Art</label>
+            </div>
+            <div class="category-option">
+              <input type="checkbox" id="pop" name="category" value="pop" />
+              <label for="pop">Pop Culture</label>
+            </div>
+          </div>
+          <button type="submit" class="answer-button">Submit</button>
+        </form>
+      </div>
     </main>
     <footer>
       <nav>
