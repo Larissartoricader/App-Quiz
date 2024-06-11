@@ -1,0 +1,23 @@
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 7vh;
+  overflow: hidden;
+  background-color: white;
+  z-index: 10;
+  display: fixed;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-inline: 0;
+  list-style: none;
+}
+
+.menu-icon {
+  width: 20px;
+}

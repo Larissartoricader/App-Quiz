@@ -6,9 +6,15 @@ header {
   display: block;
   color: white;
 }
+.all-questions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-inline: 5px;
+}
 
 .question-container {
-  background-color: lightgray;
+  background-color: white;
   border-radius: 20px;
 }
 .question-box {
@@ -27,7 +33,7 @@ header {
 
 .choice-container {
   display: flex;
-  gap: 5px;
+  gap: 3px;
 }
 
 .category-container {
@@ -45,17 +51,4 @@ header {
 
 .category-txt {
   border: solid 1px;
-}
-
-footer {
-  border: solid;
-}
-
-.menu {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-}
-.menu-icon {
-  width: 20px;
 }
