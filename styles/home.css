@@ -15,8 +15,11 @@ header {
 }
 
 .question-container {
-  background-color: white;
   border-radius: 20px;
+}
+
+.question-background {
+  background-color: white;
 }
 .question-box {
   margin-bottom: 10px;
