@@ -13,7 +13,7 @@ function createNewQuestionCard(questionData) {
 
   const bookmarkImg = document.createElement("img");
   bookmarkImg.classList.add("bookmark");
-  bookmarkImg.src = "../assets/bookmark-white.png";
+  bookmarkImg.src = "public/assets/icons/bookmark-white.png";
   bookmarkImg.dataset.js = "bookmark";
   newArticle.appendChild(bookmarkImg);
 
@@ -78,9 +78,9 @@ function createNewQuestionCard(questionData) {
     const currentSrc = bookmarkImg.getAttribute("src");
     bookmarkImg.setAttribute(
       "src",
-      currentSrc === "../assets/bookmark-white.png"
-        ? "../assets/bookmark-black.png"
-        : "../assets/bookmark-white.png"
+      currentSrc === "public/assets/icons/bookmark-white.png"
+        ? "public/assets/icons/bookmark-BLACK.png"
+        : "public/assets/icons/bookmark-white.png"
     );
   });
 
