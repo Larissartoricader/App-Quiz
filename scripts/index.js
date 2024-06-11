@@ -81,29 +81,6 @@ questions.forEach((questionData) => {
   questionsContainer.appendChild(card);
 });
 
-// // Getting Right Answer and checking it
-// function checkRightAnswer(event, choice) {
-//   const questionId = parseInt(
-//     event.target.closest(".question-container").dataset.js
-//   );
-//   const questionData = questions.find((question) => question.id === questionId);
-
-//   let rightAnswerText;
-//   if (questionData.rightanswer === "option1") {
-//     rightAnswerText = questionData.option1;
-//   } else if (questionData.rightanswer === "option2") {
-//     rightAnswerText = questionData.option2;
-//   } else if (questionData.rightanswer === "option3") {
-//     rightAnswerText = questionData.option3;
-//   }
-
-//   if (choice === rightAnswerText) {
-//     alert("Right");
-//   } else {
-//     alert("Wrong");
-//   }
-// }
-
 // Getting Right Answer and checking it
 function checkRightAnswer(event, choice) {
   const questionContainer = event.target.closest(".question-container");
