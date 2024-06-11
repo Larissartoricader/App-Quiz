@@ -10,6 +10,7 @@ const questionsContainer = document.querySelector(
 function createNewQuestionCard(questionData) {
   const newArticle = document.createElement("article");
   newArticle.classList.add("question-container");
+  newArticle.classList.add("question-background");
   newArticle.dataset.js = questionData.id;
 
   const bookmarkImg = document.createElement("img");
@@ -82,6 +83,8 @@ questions.forEach((questionData) => {
 
 // Getting Right Answer and checking it
 function checkRightAnswer(event, choice) {
+  const questionContainer = event.target.closest(".question-container");
+
   const questionId = parseInt(
     event.target.closest(".question-container").dataset.js
   );
@@ -97,9 +100,11 @@ function checkRightAnswer(event, choice) {
   }
 
   if (choice === rightAnswerText) {
-    alert("Right");
+    questionContainer.classList.add("question-background-right");
+    questionContainer.classList.remove("question-background-wrong");
   } else {
-    alert("Wrong");
+    questionContainer.classList.add("question-background-wrong");
+    questionContainer.classList.remove("question-background-right");
   }
 }
 
