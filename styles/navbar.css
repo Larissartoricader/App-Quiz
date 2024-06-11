@@ -1,8 +1,8 @@
 nav {
   position: fixed;
   bottom: 0;
-  width: 100vw;
   height: 7vh;
+  width: 100vw;
   overflow: hidden;
   background-color: white;
   z-index: 10;

@@ -63,3 +63,9 @@ header {
 .category-txt {
   font-size: small;
 }
+
+.white-space {
+  height: 9vh;
+
+  width: 100%;
+}
