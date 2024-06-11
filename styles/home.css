@@ -21,6 +21,15 @@ header {
 .question-background {
   background-color: white;
 }
+
+.question-background-right {
+  background-color: #06d001;
+}
+
+.question-background-wrong {
+  background-color: #fc4100;
+}
+
 .question-box {
   margin-bottom: 10px;
 }
