@@ -82,21 +82,19 @@ questions.forEach((questionData) => {
   questionsContainer.appendChild(card);
 });
 
-//new card from Submit
+//New Card from Submit (form.js)
 
 document.addEventListener("DOMContentLoaded", function () {
   const questionsContainer = document.querySelector(
     '[data-js="all-questions-container"]'
   );
 
-  // Verificar se há dados no localStorage
   const newQuestionData = localStorage.getItem("newQuestionData");
   if (newQuestionData) {
     const questionData = JSON.parse(newQuestionData);
     const newCard = createNewQuestionCard(questionData);
     questionsContainer.appendChild(newCard);
 
-    // Limpar o localStorage
     localStorage.removeItem("newQuestionData");
   }
 });
