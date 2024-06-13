@@ -5,6 +5,8 @@ const questionsContainer = document.querySelector(
   '[data-js="all-questions-container"]'
 );
 
+console.log(questionsContainer);
+
 // New Card HTML-Creation
 export function createNewQuestionCard(questionData) {
   const newArticle = document.createElement("article");
@@ -78,6 +80,25 @@ export function createNewQuestionCard(questionData) {
 questions.forEach((questionData) => {
   const card = createNewQuestionCard(questionData);
   questionsContainer.appendChild(card);
+});
+
+//new card from Submit
+
+document.addEventListener("DOMContentLoaded", function () {
+  const questionsContainer = document.querySelector(
+    '[data-js="all-questions-container"]'
+  );
+
+  // Verificar se há dados no localStorage
+  const newQuestionData = localStorage.getItem("newQuestionData");
+  if (newQuestionData) {
+    const questionData = JSON.parse(newQuestionData);
+    const newCard = createNewQuestionCard(questionData);
+    questionsContainer.appendChild(newCard);
+
+    // Limpar o localStorage
+    localStorage.removeItem("newQuestionData");
+  }
 });
 
 // Getting Right Answer and checking it

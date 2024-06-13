@@ -43,4 +43,8 @@ form.addEventListener("submit", (event) => {
   values.categories = categories;
 
   console.log(values);
+
+  localStorage.setItem("newQuestionData", JSON.stringify(values));
+
+  window.location.href = "index.html";
 });
