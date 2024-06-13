@@ -1,13 +1,12 @@
 import { questions } from "../scripts/questions.js";
 
 console.clear();
-
 const questionsContainer = document.querySelector(
   '[data-js="all-questions-container"]'
 );
 
 // New Card HTML-Creation
-function createNewQuestionCard(questionData) {
+export function createNewQuestionCard(questionData) {
   const newArticle = document.createElement("article");
   newArticle.classList.add("question-container");
   newArticle.classList.add("question-background");
