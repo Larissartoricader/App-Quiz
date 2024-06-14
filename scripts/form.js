@@ -42,9 +42,12 @@ form.addEventListener("submit", (event) => {
   const values = Object.fromEntries(formData);
   values.categories = categories;
 
-  console.log(values);
+  const storedQuestions =
+    JSON.parse(localStorage.getItem("questionsList")) || [];
 
-  localStorage.setItem("newQuestionData", JSON.stringify(values));
+  storedQuestions.push(values);
+
+  localStorage.setItem("questionsList", JSON.stringify(storedQuestions));
 
   window.location.href = "index.html";
 });

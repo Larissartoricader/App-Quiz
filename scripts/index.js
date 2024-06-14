@@ -82,6 +82,13 @@ questions.forEach((questionData) => {
   questionsContainer.appendChild(card);
 });
 
+// Kepp all Question-Cards
+const storedQuestions = JSON.parse(localStorage.getItem("questionsList")) || [];
+storedQuestions.forEach((questionData) => {
+  const newCard = createNewQuestionCard(questionData);
+  questionsContainer.appendChild(newCard);
+});
+
 //New Card from Submit (form.js)
 
 document.addEventListener("DOMContentLoaded", function () {
