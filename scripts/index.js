@@ -1,11 +1,8 @@
 import { questions } from "../scripts/questions.js";
 
-console.clear();
 const questionsContainer = document.querySelector(
   '[data-js="all-questions-container"]'
 );
-
-console.log(questionsContainer);
 
 // New Card HTML-Creation
 export function createNewQuestionCard(questionData) {
@@ -92,48 +89,24 @@ storedQuestions.forEach((questionData) => {
 //New Card from Submit (form.js)
 
 document.addEventListener("DOMContentLoaded", function () {
-  const questionsContainer = document.querySelector(
-    '[data-js="all-questions-container"]'
-  );
-
   const newQuestionData = localStorage.getItem("newQuestionData");
   if (newQuestionData) {
     const questionData = JSON.parse(newQuestionData);
     const newCard = createNewQuestionCard(questionData);
     questionsContainer.appendChild(newCard);
 
+    storedQuestions.push(questionData);
+    localStorage.setItem("questionsList", JSON.stringify(storedQuestions));
+
+    allQuestions.push(questionData);
+
+    addEventListenersToCard(newCard);
+
     localStorage.removeItem("newQuestionData");
   }
 });
-
-// Getting Right Answer and checking it
-function checkRightAnswer(event, choice) {
-  const questionContainer = event.target.closest(".question-container");
-
-  const questionId = parseInt(
-    event.target.closest(".question-container").dataset.js
-  );
-  const questionData = questions.find((question) => question.id === questionId);
-
-  let rightAnswerText;
-  if (questionData.rightanswer === "option1") {
-    rightAnswerText = questionData.option1;
-  } else if (questionData.rightanswer === "option2") {
-    rightAnswerText = questionData.option2;
-  } else if (questionData.rightanswer === "option3") {
-    rightAnswerText = questionData.option3;
-  }
-
-  if (choice === rightAnswerText) {
-    questionContainer.classList.add("question-background-right");
-    questionContainer.classList.remove("question-background-wrong");
-  } else {
-    questionContainer.classList.add("question-background-wrong");
-    questionContainer.classList.remove("question-background-right");
-  }
-}
-
 // Verifying the Answer
+
 const buttons1 = document.querySelectorAll('[data-js="option1"]');
 const buttons2 = document.querySelectorAll('[data-js="option2"]');
 const buttons3 = document.querySelectorAll('[data-js="option3"]');
@@ -155,3 +128,44 @@ buttons3.forEach((button3) => {
     checkRightAnswer(event, button3.textContent);
   });
 });
+
+// All Questions together
+
+const allQuestions = [...questions, ...storedQuestions];
+
+// Getting Right Answer and checking it
+function checkRightAnswer(event, choice) {
+  const questionContainer = event.target.closest(".question-container");
+
+  const questionId = parseInt(questionContainer.dataset.js);
+  const questionData = allQuestions.find(
+    (question) => question.id === questionId
+  );
+
+  let rightAnswerText;
+  if (questionData.rightanswer === "option1") {
+    rightAnswerText = questionData.option1;
+  } else if (questionData.rightanswer === "option2") {
+    rightAnswerText = questionData.option2;
+  } else if (questionData.rightanswer === "option3") {
+    rightAnswerText = questionData.option3;
+  }
+
+  if (choice === rightAnswerText) {
+    questionContainer.classList.add("question-background-right");
+    questionContainer.classList.remove("question-background-wrong");
+  } else {
+    questionContainer.classList.add("question-background-wrong");
+    questionContainer.classList.remove("question-background-right");
+  }
+}
+
+// Function to add event listeners to card buttons
+function addEventListenersToCard(card) {
+  const buttons = card.querySelectorAll(".choice");
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      checkRightAnswer(event, button.textContent);
+    });
+  });
+}
